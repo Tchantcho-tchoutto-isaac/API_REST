@@ -5,15 +5,30 @@ namespace App\DataFixtures;
 use App\Entity\Book;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
+use App\Entity\Author;
 
 class AppFixtures extends Fixture
 {
     public function load(ObjectManager $manager): void
     {
+
+          
+    // Création des auteurs.
+        $listAuthor = [];
+        for ($i = 0; $i < 10; $i++) {
+            // Création de l'auteur lui-même.
+            $author = new Author();
+            $author->setfirstName("Prénom " . $i);
+            $author->setLastName("Nom " . $i);
+            $manager->persist($author);
+            // On sauvegarde l'auteur créé dans un tableau.
+            $listAuthor[] = $author;
+         }
         for ($i = 0; $i < 20; $i++) {
             $livre = new Book;
             $livre->setTitle('Livre ' . $i);
-            $livre->setCoverText('Quatrième de couverture numéro : ' . $i);
+            $livre->setCoverText('Quatrième de couverture numéro : ' . $i);   
+            $livre->setAuthor($listAuthor[array_rand($listAuthor)]);
             $manager->persist($livre);
         }
 

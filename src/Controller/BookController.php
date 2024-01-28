@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Controller;
-
+use Symfony\Component\Serializer\Annotation\Groups;
 use App\Entity\Book;
 use Symfony\Component\HttpFoundation\Response;
 use App\Repository\BookRepository;
@@ -15,7 +15,7 @@ class BookController extends AbstractController
     public function getBooks(BookRepository $bookRepository,SerializerInterface $serializer): JsonResponse
     {
         $books= $bookRepository->findAll();
-        $bookList= $serializer->serialize($books,'json');
+        $bookList= $serializer->serialize($books,'json' , ['groups' => 'getBooks']);
 
         return new JsonResponse(
              $bookList,
@@ -44,7 +44,7 @@ class BookController extends AbstractController
     #[Route('/api/books/{id}', name: 'detailBook', methods: ['GET'])]
     public function getDetailBook(Book $book, SerializerInterface $serializer): JsonResponse 
     {
-        $jsonBook = $serializer->serialize($book, 'json');
+        $jsonBook = $serializer->serialize($book, 'json', ['groups' => 'getBooks']);
         return new JsonResponse($jsonBook, Response::HTTP_OK, ['accept' => 'json'], true);
     }
 }

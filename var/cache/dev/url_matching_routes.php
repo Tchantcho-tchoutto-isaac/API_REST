@@ -31,6 +31,7 @@ return [
         90 => [
             [['_route' => 'detailBook', '_controller' => 'App\\Controller\\BookController::getDetailBook'], ['id'], ['GET' => 0], null, false, true, null],
             [['_route' => 'deleteBook', '_controller' => 'App\\Controller\\BookController::DeleteBook'], ['id'], ['DELETE' => 0], null, false, true, null],
+            [['_route' => 'updateBook', '_controller' => 'App\\Controller\\BookController::updateBook'], ['id'], ['PUT' => 0], null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],
     ],

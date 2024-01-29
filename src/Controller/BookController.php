@@ -62,18 +62,28 @@ class BookController extends AbstractController
 
 
       
-    #[Route('/api/books', name:"createBook", methods: ['POST'])]
-    public function createBook(Request $request, SerializerInterface $serializer, EntityManagerInterface $em, UrlGeneratorInterface $urlGenerator): JsonResponse 
-    {
+   #[Route('/api/books', name:"createBook", methods: ['POST'])]
+   public function createBook(Request $request, SerializerInterface $serializer, EntityManagerInterface $em, UrlGeneratorInterface $urlGenerator, AuthorRepository $authorRepository): JsonResponse 
+   {
+       $book = $serializer->deserialize($request->getContent(), Book::class, 'json');
 
-        $book = $serializer->deserialize($request->getContent(), Book::class, 'json');
-        $em->persist($book);
-        $em->flush();
+       // Récupération de l'ensemble des données envoyées sous forme de tableau
+       $content = $request->toArray();
 
-        $jsonBook = $serializer->serialize($book, 'json', ['groups' => 'getBooks']);
-        
-        $location = $urlGenerator->generate('detailBook', ['id' => $book->getId()], UrlGeneratorInterface::ABSOLUTE_URL);
+       // Récupération de l'idAuthor. S'il n'est pas défini, alors on met -1 par défaut.
+       $idAuthor = $content['idAuthor'] ?? -1;
 
-        return new JsonResponse($jsonBook, Response::HTTP_CREATED, ["Location" => $location], true);
+       // On cherche l'auteur qui correspond et on l'assigne au livre.
+       // Si "find" ne trouve pas l'auteur, alors null sera retourné.
+       $book->setAuthor($authorRepository->find($idAuthor));
+    
+       $em->persist($book);
+       $em->flush();
+
+       $jsonBook = $serializer->serialize($book, 'json', ['groups' => 'getBooks']);
+
+       $location = $urlGenerator->generate('detailBook', ['id' => $book->getId()], UrlGeneratorInterface::ABSOLUTE_URL);
+
+       return new JsonResponse($jsonBook, Response::HTTP_CREATED, ["Location" => $location], true);
    }
 }

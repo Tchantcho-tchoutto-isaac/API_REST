@@ -220,7 +220,7 @@
     </service>
     <service id="argument_resolver.service" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
       <tag priority="-50" name="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">controller.argument_value_resolver</tag>
-      <argument type="service" id=".service_locator.Yjds1Fa"/>
+      <argument type="service" id=".service_locator.EB7HgCM"/>
     </service>
     <service id="argument_resolver.default" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver">
       <tag priority="-100" name="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver">controller.argument_value_resolver</tag>
@@ -1240,7 +1240,7 @@
     </service>
     <service id="argument_resolver.not_tagged_controller" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
       <tag name="controller.argument_value_resolver" priority="-200"/>
-      <argument type="service" id=".service_locator.Yjds1Fa"/>
+      <argument type="service" id=".service_locator.EB7HgCM"/>
     </service>
     <service id="routing.resolver" class="Symfony\Component\Config\Loader\LoaderResolver">
       <call method="addLoader">
@@ -2976,23 +2976,40 @@
         <argument key="em" type="service_closure" id="doctrine.orm.default_entity_manager"/>
       </argument>
     </service>
-    <service id=".service_locator.OvD6SVk" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".errored.6tEMebf" class="App\Controller\AuthorRepository">
+      <tag name="container.error" message="Cannot determine controller argument for &quot;App\Controller\BookController::createBook()&quot;: the $authorRepository argument is type-hinted with the non-existent class or interface: &quot;App\Controller\AuthorRepository&quot;. Did you forget to add a use statement?"/>
+    </service>
+    <service id=".service_locator.naeQSO2" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
+        <argument key="authorRepository" type="service_closure" id=".errored.6tEMebf"/>
         <argument key="em" type="service_closure" id="doctrine.orm.default_entity_manager"/>
         <argument key="serializer" type="service_closure" id="serializer"/>
         <argument key="urlGenerator" type="service_closure" id="router.default"/>
       </argument>
     </service>
-    <service id=".service_locator.Yjds1Fa" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".errored.Z9STk4k" class="App\Controller\AuthorRepository">
+      <tag name="container.error" message="Cannot determine controller argument for &quot;App\Controller\BookController::updateBook()&quot;: the $authorRepository argument is type-hinted with the non-existent class or interface: &quot;App\Controller\AuthorRepository&quot;. Did you forget to add a use statement?"/>
+    </service>
+    <service id=".service_locator.ny5DK08" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="authorRepository" type="service_closure" id=".errored.Z9STk4k"/>
+        <argument key="currentBook" type="service_closure" id=".errored..service_locator.ny5DK08.App\Entity\Book"/>
+        <argument key="em" type="service_closure" id="doctrine.orm.default_entity_manager"/>
+        <argument key="serializer" type="service_closure" id="serializer"/>
+      </argument>
+    </service>
+    <service id=".service_locator.EB7HgCM" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\AuthorController::getAuthors" type="service_closure" id=".service_locator.c2_CVxI"/>
         <argument key="App\Controller\AuthorController::getDetailAuthor" type="service_closure" id=".service_locator.FxyxYao"/>
         <argument key="App\Controller\BookController::DeleteBook" type="service_closure" id=".service_locator.FaIXBcg"/>
-        <argument key="App\Controller\BookController::createBook" type="service_closure" id=".service_locator.OvD6SVk"/>
+        <argument key="App\Controller\BookController::createBook" type="service_closure" id=".service_locator.naeQSO2"/>
         <argument key="App\Controller\BookController::getBooks" type="service_closure" id=".service_locator.msKV3CX"/>
         <argument key="App\Controller\BookController::getDetailBook" type="service_closure" id=".service_locator.uAQXRKb"/>
+        <argument key="App\Controller\BookController::updateBook" type="service_closure" id=".service_locator.ny5DK08"/>
         <argument key="App\Kernel::loadRoutes" type="service_closure" id=".service_locator.y4_Zrx."/>
         <argument key="App\Kernel::registerContainerConfiguration" type="service_closure" id=".service_locator.y4_Zrx."/>
         <argument key="kernel::loadRoutes" type="service_closure" id=".service_locator.y4_Zrx."/>
@@ -3000,9 +3017,10 @@
         <argument key="App\Controller\AuthorController:getAuthors" type="service_closure" id=".service_locator.c2_CVxI"/>
         <argument key="App\Controller\AuthorController:getDetailAuthor" type="service_closure" id=".service_locator.FxyxYao"/>
         <argument key="App\Controller\BookController:DeleteBook" type="service_closure" id=".service_locator.FaIXBcg"/>
-        <argument key="App\Controller\BookController:createBook" type="service_closure" id=".service_locator.OvD6SVk"/>
+        <argument key="App\Controller\BookController:createBook" type="service_closure" id=".service_locator.naeQSO2"/>
         <argument key="App\Controller\BookController:getBooks" type="service_closure" id=".service_locator.msKV3CX"/>
         <argument key="App\Controller\BookController:getDetailBook" type="service_closure" id=".service_locator.uAQXRKb"/>
+        <argument key="App\Controller\BookController:updateBook" type="service_closure" id=".service_locator.ny5DK08"/>
         <argument key="kernel:loadRoutes" type="service_closure" id=".service_locator.y4_Zrx."/>
         <argument key="kernel:registerContainerConfiguration" type="service_closure" id=".service_locator.y4_Zrx."/>
       </argument>
@@ -3246,6 +3264,9 @@
     </service>
     <service id=".errored..service_locator.FaIXBcg.App\Entity\Book" class="App\Entity\Book">
       <tag name="container.error" message="Cannot autowire service &quot;.service_locator.FaIXBcg&quot;: it needs an instance of &quot;App\Entity\Book&quot; but this type has been excluded in &quot;config/services.yaml&quot;."/>
+    </service>
+    <service id=".errored..service_locator.ny5DK08.App\Entity\Book" class="App\Entity\Book">
+      <tag name="container.error" message="Cannot autowire service &quot;.service_locator.ny5DK08&quot;: it needs an instance of &quot;App\Entity\Book&quot; but this type has been excluded in &quot;config/services.yaml&quot;."/>
     </service>
     <service id=".console.command.about.lazy" class="Symfony\Component\Console\Command\LazyCommand">
       <argument>about</argument>
@@ -3945,7 +3966,7 @@
     <service id="doctrine.orm.default_entity_manager.event_manager" alias="doctrine.dbal.default_connection.event_manager"/>
     <service id="doctrine.migrations.metadata_storage" alias="doctrine.migrations.storage.table_storage"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.bJ.4HC5" public="true"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.Yjds1Fa"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.EB7HgCM"/>
     <service id="doctrine.id_generator_locator" alias=".service_locator.KLVvNIq"/>
     <service id="Psr\Log\LoggerInterface" alias="logger"/>
     <service id="event_dispatcher" alias="debug.event_dispatcher" public="true"/>
@@ -3958,7 +3979,8 @@
     <service id=".service_locator.fot_oVu" alias=".service_locator.msKV3CX"/>
     <service id=".service_locator.as3DkCk" alias=".service_locator.uAQXRKb"/>
     <service id=".service_locator.hzkfHhu" alias=".service_locator.FaIXBcg"/>
-    <service id=".service_locator.wmUQZ0y" alias=".service_locator.OvD6SVk"/>
+    <service id=".service_locator.Wc1RJGf" alias=".service_locator.naeQSO2"/>
+    <service id=".service_locator.D8jc_xn" alias=".service_locator.ny5DK08"/>
     <service id=".service_locator.ZzyNbBl" alias=".service_locator.jUv.zyj"/>
   </services>
 </container>

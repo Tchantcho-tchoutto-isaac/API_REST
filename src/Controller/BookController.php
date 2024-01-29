@@ -5,6 +5,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
 use App\Entity\Book;
 use Symfony\Component\HttpFoundation\Response;
 use App\Repository\BookRepository;
+use App\Repository\AuthorRepository;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -13,6 +14,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
+use Symfony\Component\Serializer\Normalizer\AbstractNormalizer;
 
 class BookController extends AbstractController
 {
@@ -90,7 +92,7 @@ class BookController extends AbstractController
    
     #[Route('/api/books/{id}', name:"updateBook", methods:['PUT'])]
 
-    public function updateBook(Request $request, SerializerInterface $serializer, Book $currentBook, EntityManagerInterface $em, AuthorRepository $authorRepository): JsonResponse 
+    public function updateBook(Request $request, SerializerInterface $serializer, Book $currentBook, EntityManagerInterface $em,  AuthorRepository $authorRepository): JsonResponse 
     {
         $updatedBook = $serializer->deserialize($request->getContent(), 
                 Book::class, 

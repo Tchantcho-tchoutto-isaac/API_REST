@@ -14,16 +14,19 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Serializer\Normalizer\AbstractNormalizer;
-use Symfony\Component\Serializer\SerializerInterface 
-;
+use Symfony\Component\Serializer\SerializerInterface;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 
 
 class BookController extends AbstractController
 {
     #[Route('/api/books', name: 'book', methods: ['GET'])]
-    public function getBooks(BookRepository $bookRepository,SerializerInterface $serializer): JsonResponse
-    {
-        $books= $bookRepository->findAll();
+   /* #[IsGranted('ROLE_ADMIN', message: 'Vous n\'avez pas les droits suffisants pour créer un livre')]*/
+    public function getBooks(BookRepository $bookRepository,SerializerInterface $serializer , Request $request): JsonResponse
+    {   
+        $page = $request->get('page', 1);
+        $limit = $request->get('limit', 8);
+        $books = $bookRepository->findAllWithPagination($page, $limit);
         $bookList= $serializer->serialize($books,'json' , ['groups' => 'getBooks']);
 
         return new JsonResponse(

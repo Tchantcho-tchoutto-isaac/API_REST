@@ -13,6 +13,7 @@ return [
             [['_route' => 'book', '_controller' => 'App\\Controller\\BookController::getBooks'], null, ['GET' => 0], null, false, false, null],
             [['_route' => 'createBook', '_controller' => 'App\\Controller\\BookController::createBook'], null, ['POST' => 0], null, false, false, null],
         ],
+        '/api/login_check' => [[['_route' => 'api_login_check'], null, null, null, false, false, null]],
     ],
     [ // $regexpList
         0 => '{^(?'

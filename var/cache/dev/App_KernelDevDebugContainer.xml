@@ -261,7 +261,7 @@
     </service>
     <service id="argument_resolver.service" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
       <tag priority="-50" name="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">controller.argument_value_resolver</tag>
-      <argument type="service" id=".service_locator.LCjfVD5"/>
+      <argument type="service" id=".service_locator.4NQPy.N"/>
     </service>
     <service id="argument_resolver.default" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver">
       <tag priority="-100" name="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver">controller.argument_value_resolver</tag>
@@ -1431,7 +1431,7 @@
     </service>
     <service id="argument_resolver.not_tagged_controller" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
       <tag name="controller.argument_value_resolver" priority="-200"/>
-      <argument type="service" id=".service_locator.LCjfVD5"/>
+      <argument type="service" id=".service_locator.4NQPy.N"/>
     </service>
     <service id="routing.resolver" class="Symfony\Component\Config\Loader\LoaderResolver">
       <call method="addLoader">
@@ -4103,10 +4103,11 @@
         <argument key="serializer" type="service_closure" id="serializer"/>
       </argument>
     </service>
-    <service id=".service_locator.msKV3CX" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.kKcT2yb" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="bookRepository" type="service_closure" id="App\Repository\BookRepository"/>
+        <argument key="cachepool" type="service_closure" id="cache.app.taggable"/>
         <argument key="serializer" type="service_closure" id="serializer"/>
       </argument>
     </service>
@@ -4142,14 +4143,14 @@
         <argument key="serializer" type="service_closure" id="serializer"/>
       </argument>
     </service>
-    <service id=".service_locator.LCjfVD5" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.4NQPy.N" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\AuthorController::getAuthors" type="service_closure" id=".service_locator.c2_CVxI"/>
         <argument key="App\Controller\AuthorController::getDetailAuthor" type="service_closure" id=".service_locator.FxyxYao"/>
         <argument key="App\Controller\BookController::DeleteBook" type="service_closure" id=".service_locator.FaIXBcg"/>
         <argument key="App\Controller\BookController::createBook" type="service_closure" id=".service_locator.8mjAQi1"/>
-        <argument key="App\Controller\BookController::getBooks" type="service_closure" id=".service_locator.msKV3CX"/>
+        <argument key="App\Controller\BookController::getBooks" type="service_closure" id=".service_locator.kKcT2yb"/>
         <argument key="App\Controller\BookController::getDetailBook" type="service_closure" id=".service_locator.uAQXRKb"/>
         <argument key="App\Controller\BookController::updateBook" type="service_closure" id=".service_locator.ZcUBzQz"/>
         <argument key="App\Kernel::loadRoutes" type="service_closure" id=".service_locator.y4_Zrx."/>
@@ -4160,7 +4161,7 @@
         <argument key="App\Controller\AuthorController:getDetailAuthor" type="service_closure" id=".service_locator.FxyxYao"/>
         <argument key="App\Controller\BookController:DeleteBook" type="service_closure" id=".service_locator.FaIXBcg"/>
         <argument key="App\Controller\BookController:createBook" type="service_closure" id=".service_locator.8mjAQi1"/>
-        <argument key="App\Controller\BookController:getBooks" type="service_closure" id=".service_locator.msKV3CX"/>
+        <argument key="App\Controller\BookController:getBooks" type="service_closure" id=".service_locator.kKcT2yb"/>
         <argument key="App\Controller\BookController:getDetailBook" type="service_closure" id=".service_locator.uAQXRKb"/>
         <argument key="App\Controller\BookController:updateBook" type="service_closure" id=".service_locator.ZcUBzQz"/>
         <argument key="kernel:loadRoutes" type="service_closure" id=".service_locator.y4_Zrx."/>
@@ -5413,7 +5414,7 @@
     <service id="Lexik\Bundle\JWTAuthenticationBundle\Encoder\JWTEncoderInterface" alias="lexik_jwt_authentication.encoder.lcobucci"/>
     <service id="lexik_jwt_authentication.key_loader" alias="lexik_jwt_authentication.key_loader.raw" public="true"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.bJ.4HC5" public="true"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.LCjfVD5"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.4NQPy.N"/>
     <service id="doctrine.id_generator_locator" alias=".service_locator.KLVvNIq"/>
     <service id="Psr\Log\LoggerInterface" alias="logger"/>
     <service id="event_dispatcher" alias="debug.event_dispatcher" public="true"/>
@@ -5428,7 +5429,7 @@
     <service id=".service_locator.gFlme_s" alias=".service_locator.y4_Zrx."/>
     <service id=".service_locator.Yj9K3Zy" alias=".service_locator.c2_CVxI"/>
     <service id=".service_locator.r1NsIE4" alias=".service_locator.FxyxYao"/>
-    <service id=".service_locator.fot_oVu" alias=".service_locator.msKV3CX"/>
+    <service id=".service_locator.NVWv0yp" alias=".service_locator.kKcT2yb"/>
     <service id=".service_locator.as3DkCk" alias=".service_locator.uAQXRKb"/>
     <service id=".service_locator.hzkfHhu" alias=".service_locator.FaIXBcg"/>
     <service id=".service_locator.0yUb1Gq" alias=".service_locator.8mjAQi1"/>

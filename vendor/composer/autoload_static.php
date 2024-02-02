@@ -18,6 +18,14 @@ class ComposerStaticInit2e074b178cf99c894ccdda33ec3f7bde
     );
 
     public static $prefixLengthsPsr4 = array (
+        'p' => 
+        array (
+            'phpDocumentor\\Reflection\\' => 25,
+        ),
+        'W' => 
+        array (
+            'Webmozart\\Assert\\' => 17,
+        ),
         'S' => 
         array (
             'Symfony\\Runtime\\Symfony\\Component\\' => 34,
@@ -26,7 +34,6 @@ class ComposerStaticInit2e074b178cf99c894ccdda33ec3f7bde
             'Symfony\\Polyfill\\Intl\\Normalizer\\' => 33,
             'Symfony\\Polyfill\\Intl\\Grapheme\\' => 31,
             'Symfony\\Flex\\' => 13,
-            'Symfony\\Contracts\\Translation\\' => 30,
             'Symfony\\Contracts\\Service\\' => 26,
             'Symfony\\Contracts\\EventDispatcher\\' => 34,
             'Symfony\\Contracts\\Cache\\' => 24,
@@ -45,6 +52,7 @@ class ComposerStaticInit2e074b178cf99c894ccdda33ec3f7bde
             'Symfony\\Component\\PropertyAccess\\' => 33,
             'Symfony\\Component\\Process\\' => 26,
             'Symfony\\Component\\PasswordHasher\\' => 33,
+            'Symfony\\Component\\OptionsResolver\\' => 34,
             'Symfony\\Component\\HttpKernel\\' => 29,
             'Symfony\\Component\\HttpFoundation\\' => 33,
             'Symfony\\Component\\Finder\\' => 25,
@@ -70,16 +78,15 @@ class ComposerStaticInit2e074b178cf99c894ccdda33ec3f7bde
             'Psr\\Clock\\' => 10,
             'Psr\\Cache\\' => 10,
             'PhpParser\\' => 10,
+            'PHPStan\\PhpDocParser\\' => 21,
+        ),
+        'O' => 
+        array (
+            'OpenApi\\' => 8,
         ),
         'N' => 
         array (
-            'Namshi\\JOSE\\' => 12,
-        ),
-        'L' => 
-        array (
-            'Lexik\\Bundle\\JWTAuthenticationBundle\\' => 37,
-            'Lcobucci\\JWT\\' => 13,
-            'Lcobucci\\Clock\\' => 15,
+            'Nelmio\\ApiDocBundle\\' => 20,
         ),
         'D' => 
         array (
@@ -108,6 +115,16 @@ class ComposerStaticInit2e074b178cf99c894ccdda33ec3f7bde
     );
 
     public static $prefixDirsPsr4 = array (
+        'phpDocumentor\\Reflection\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/phpdocumentor/reflection-common/src',
+            1 => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src',
+            2 => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src',
+        ),
+        'Webmozart\\Assert\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/webmozart/assert/src',
+        ),
         'Symfony\\Runtime\\Symfony\\Component\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/runtime/Internal',
@@ -131,10 +148,6 @@ class ComposerStaticInit2e074b178cf99c894ccdda33ec3f7bde
         'Symfony\\Flex\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/flex/src',
-        ),
-        'Symfony\\Contracts\\Translation\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/symfony/translation-contracts',
         ),
         'Symfony\\Contracts\\Service\\' => 
         array (
@@ -207,6 +220,10 @@ class ComposerStaticInit2e074b178cf99c894ccdda33ec3f7bde
         'Symfony\\Component\\PasswordHasher\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/password-hasher',
+        ),
+        'Symfony\\Component\\OptionsResolver\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/options-resolver',
         ),
         'Symfony\\Component\\HttpKernel\\' => 
         array (
@@ -296,21 +313,17 @@ class ComposerStaticInit2e074b178cf99c894ccdda33ec3f7bde
         array (
             0 => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser',
         ),
-        'Namshi\\JOSE\\' => 
+        'PHPStan\\PhpDocParser\\' => 
         array (
-            0 => __DIR__ . '/..' . '/namshi/jose/src/Namshi/JOSE',
+            0 => __DIR__ . '/..' . '/phpstan/phpdoc-parser/src',
         ),
-        'Lexik\\Bundle\\JWTAuthenticationBundle\\' => 
+        'OpenApi\\' => 
         array (
-            0 => __DIR__ . '/..' . '/lexik/jwt-authentication-bundle',
+            0 => __DIR__ . '/..' . '/zircote/swagger-php/src',
         ),
-        'Lcobucci\\JWT\\' => 
+        'Nelmio\\ApiDocBundle\\' => 
         array (
-            0 => __DIR__ . '/..' . '/lcobucci/jwt/src',
-        ),
-        'Lcobucci\\Clock\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/lcobucci/clock/src',
+            0 => __DIR__ . '/..' . '/nelmio/api-doc-bundle',
         ),
         'Doctrine\\SqlFormatter\\' => 
         array (

@@ -18,7 +18,9 @@
         "symfony/runtime": "7.0.*",
         "symfony/security-bundle": "7.0.*",
         "symfony/serializer": "7.0.*",
-        "symfony/yaml": "7.0.*"
+        "symfony/yaml": "7.0.*",
+        "lexik/jwt-authentication-bundle": "^1.6"
+
     },
     "require-dev": {
         "doctrine/doctrine-fixtures-bundle": "^3.5",
@@ -31,6 +33,7 @@
             "symfony/runtime": true
         },
         "sort-packages": true
+     
     },
     "autoload": {
         "psr-4": {
